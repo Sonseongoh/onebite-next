@@ -7,6 +7,7 @@ import {
   GetStaticPropsContext,
   InferGetServerSidePropsType,
 } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -37,6 +38,15 @@ export default function Page() {
 
   return (
     <div>
+      <Head>
+        <title>한입북스 - 검색결과</title>
+        <meta property="og:image" content="/thumbnail.png" />
+        <meta property="og:title" content="한입북스 - 검색결과" />
+        <meta
+          property="og:description"
+          content="한입북스에 등록된 도서들을 만나보세요"
+        />
+      </Head>
       {books.map((book) => (
         <BookItem key={book.id} {...book} />
       ))}
